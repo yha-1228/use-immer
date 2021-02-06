@@ -7,7 +7,7 @@ import { delay } from '../utils'
 type State = {
   users: Users
   isLoaded: boolean
-  error: string | null
+  error: any
 }
 
 const initialState = {
@@ -30,9 +30,18 @@ export default function UserTable() {
         })
       })
       .catch((error) => {
-        console.log(error.message)
+        setState({
+          ...state,
+          error: error,
+        })
       })
   }, [state])
+
+  const renderByState = () => {
+    if (state.error) {
+      return <div>{state.error.message}</div>
+    }
+  }
 
   return (
     <Box p="16px" m="0 auto" maxWidth="720px" bgcolor="#f5f5f5">
