@@ -1,5 +1,5 @@
 import './App.css';
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { getUsers } from './api';
 import { Users } from './types';
 import { delay } from './utils';
