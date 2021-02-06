@@ -1,20 +1,14 @@
 // import produce from 'immer'
 const immer = require('immer')
 
-const state = [
-  {
-    todo: 'Learn typescript',
-    done: true,
-  },
-  {
-    todo: 'Try immer',
-    done: false,
-  },
-]
+const state = {
+  name: 'Lorem',
+  age: 20,
+  location: 'Tokyo',
+}
 
 const newState = immer.produce(state, (draftState) => {
-  draftState.push({ todo: 'Tweet about it' })
-  draftState[1].done = true
+  draftState.age = 21
 })
 
 console.log('newState :>> ', newState)
