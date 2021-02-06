@@ -15,7 +15,7 @@ const initialState = {
   error: null,
 };
 
-function App() {
+export default function App() {
   const [state, setState] = useState<State>(initialState);
 
   const loadUsers = () => {
@@ -57,5 +57,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
