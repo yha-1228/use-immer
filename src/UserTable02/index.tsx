@@ -25,17 +25,19 @@ export default function UserTable02() {
     getUsers()
       .then(async (result) => {
         await delay(800)
-        setState({
-          ...state,
-          isLoaded: true,
-          users: result,
-        })
+        setState(
+          produce(state, (draftState) => {
+            draftState.isLoaded = true
+            draftState.users = result
+          })
+        )
       })
       .catch((error) => {
-        setState({
-          ...state,
-          error: error,
-        })
+        setState(
+          produce(state, (draftState) => {
+            draftState.error = error
+          })
+        )
       })
   }, [state])
 
