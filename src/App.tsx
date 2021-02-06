@@ -19,9 +19,9 @@ const initialState = {
 export default function App() {
   const [state, setState] = useState<State>(initialState);
 
-  const loadUsers = useCallback(() => {
+  useEffect(() => {
     getUsers().then(async (result) => {
-      await delay(8000);
+      await delay(800);
       setState({
         ...state,
         isLoaded: true,
@@ -29,10 +29,6 @@ export default function App() {
       });
     });
   }, [state]);
-
-  useEffect(() => {
-    loadUsers();
-  }, [loadUsers]);
 
   return (
     <div>
