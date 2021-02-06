@@ -36,7 +36,7 @@ export default function App() {
   }, [state])
 
   return (
-    <Box p="16px" m="0 auto" maxWidth="960px" bgcolor="#f5f5f5">
+    <Box p="16px" m="0 auto" maxWidth="720px" bgcolor="#f5f5f5">
       <table>
         <thead>
           <tr>
