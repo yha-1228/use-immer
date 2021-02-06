@@ -1,6 +1,13 @@
+import './App.css';
 import { useEffect, useState } from 'react';
 import { getUsers } from './api';
-import './App.css';
+import { Users } from './types';
+
+type State = {
+  users: Users;
+  isLoaded: boolean;
+  error: string | null;
+};
 
 const initialState = {
   users: [],
@@ -9,7 +16,7 @@ const initialState = {
 };
 
 function App() {
-  const [state, setState] = useState(initialState);
+  const [state, setState] = useState<State>(initialState);
 
   const loadUsers = () => {
     getUsers().then((result) => {
