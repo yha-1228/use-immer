@@ -1,7 +1,7 @@
 // import produce from 'immer'
 const immer = require('immer')
 
-const baseState = [
+const state = [
   {
     todo: 'Learn typescript',
     done: true,
@@ -12,9 +12,9 @@ const baseState = [
   },
 ]
 
-const nextState = immer.produce(baseState, (draftState) => {
+const newState = immer.produce(state, (draftState) => {
   draftState.push({ todo: 'Tweet about it' })
   draftState[1].done = true
 })
 
-console.log('nextState :>> ', nextState)
+console.log('newState :>> ', newState)
