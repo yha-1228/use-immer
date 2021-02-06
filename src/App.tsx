@@ -2,6 +2,7 @@ import './App.css';
 import { useCallback, useEffect, useState } from 'react';
 import { getUsers } from './api';
 import { Users } from './types';
+import { delay } from './utils';
 
 type State = {
   users: Users;
@@ -19,7 +20,8 @@ export default function App() {
   const [state, setState] = useState<State>(initialState);
 
   const loadUsers = useCallback(() => {
-    getUsers().then((result) => {
+    getUsers().then(async (result) => {
+      await delay(8000);
       setState({
         ...state,
         isLoaded: true,
