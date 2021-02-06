@@ -1,4 +1,3 @@
-// import produce from 'immer'
 const immer = require('immer')
 
 const state = {
@@ -7,8 +6,12 @@ const state = {
   location: 'Tokyo',
 }
 
-const newState = immer.produce(state, (draftState) => {
-  draftState.age = 21
-})
+// const newState = immer.produce(state, (draftState) => {
+//   draftState.age = 21
+// })
 
+const newState = state
+state.age = 21
+
+console.log('state :>> ', state)
 console.log('newState :>> ', newState)
