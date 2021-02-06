@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { getUsers } from './api'
 import { Users } from './types'
 import { delay } from './utils'
+import Box from '@material-ui/core/Box'
 
 type State = {
   users: Users
@@ -35,7 +36,7 @@ export default function App() {
   }, [state])
 
   return (
-    <div>
+    <Box p="16px" m="0 auto" maxWidth="960px" bgcolor="#f5f5f5">
       <table>
         <thead>
           <tr>
@@ -56,6 +57,6 @@ export default function App() {
           ))}
         </tbody>
       </table>
-    </div>
+    </Box>
   )
 }
