@@ -20,14 +20,18 @@ export default function App() {
   const [state, setState] = useState<State>(initialState)
 
   useEffect(() => {
-    getUsers().then(async (result) => {
-      await delay(800)
-      setState({
-        ...state,
-        isLoaded: true,
-        users: result,
+    getUsers()
+      .then(async (result) => {
+        await delay(800)
+        setState({
+          ...state,
+          isLoaded: true,
+          users: result,
+        })
       })
-    })
+      .catch((error) => {
+        console.log(error.message)
+      })
   }, [state])
 
   return (
