@@ -1,6 +1,6 @@
 import './App.css'
-import UserTable01 from './UserTable01'
+import UserTable02 from './UserTable02'
 
 export default function App() {
-  return <UserTable01 />
+  return <UserTable02 />
 }
