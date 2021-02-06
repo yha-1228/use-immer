@@ -1,5 +1,5 @@
 import './App.css';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { getUsers } from './api';
 import { Users } from './types';
 
@@ -18,7 +18,7 @@ const initialState = {
 export default function App() {
   const [state, setState] = useState<State>(initialState);
 
-  const loadUsers = () => {
+  const loadUsers = useCallback(() => {
     getUsers().then((result) => {
       setState({
         ...state,
@@ -26,11 +26,11 @@ export default function App() {
         users: result,
       });
     });
-  };
+  }, [state]);
 
   useEffect(() => {
     loadUsers();
-  }, []);
+  }, [loadUsers]);
 
   return (
     <div>
