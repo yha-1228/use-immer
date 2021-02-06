@@ -1,4 +1,5 @@
-import produce from 'immer'
+// import produce from 'immer'
+const immer = require('immer')
 
 const baseState = [
   {
@@ -11,7 +12,7 @@ const baseState = [
   },
 ]
 
-const nextState = produce(baseState, (draftState) => {
+const nextState = immer.produce(baseState, (draftState) => {
   draftState.push({ todo: 'Tweet about it' })
   draftState[1].done = true
 })
