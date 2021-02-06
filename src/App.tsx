@@ -1,34 +1,34 @@
-import './App.css';
-import { useEffect, useState } from 'react';
-import { getUsers } from './api';
-import { Users } from './types';
-import { delay } from './utils';
+import './App.css'
+import { useEffect, useState } from 'react'
+import { getUsers } from './api'
+import { Users } from './types'
+import { delay } from './utils'
 
 type State = {
-  users: Users;
-  isLoaded: boolean;
-  error: string | null;
-};
+  users: Users
+  isLoaded: boolean
+  error: string | null
+}
 
 const initialState = {
   users: [],
   isLoaded: false,
   error: null,
-};
+}
 
 export default function App() {
-  const [state, setState] = useState<State>(initialState);
+  const [state, setState] = useState<State>(initialState)
 
   useEffect(() => {
     getUsers().then(async (result) => {
-      await delay(800);
+      await delay(800)
       setState({
         ...state,
         isLoaded: true,
         users: result,
-      });
-    });
-  }, [state]);
+      })
+    })
+  }, [state])
 
   return (
     <div>
@@ -53,5 +53,5 @@ export default function App() {
         </tbody>
       </table>
     </div>
-  );
+  )
 }
