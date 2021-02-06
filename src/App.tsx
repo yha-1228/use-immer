@@ -45,7 +45,12 @@ function App() {
         </thead>
         <tbody>
           {state.users.map((user) => (
-            <tr key={user.id}></tr>
+            <tr key={user.id}>
+              <td>{user.id}</td>
+              <td>{user.name}</td>
+              <td>{user.username}</td>
+              <td>{user.email}</td>
+            </tr>
           ))}
         </tbody>
       </table>
