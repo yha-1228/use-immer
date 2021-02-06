@@ -37,7 +37,7 @@ export default function UserTable() {
       })
   }, [state])
 
-  const renderByState = () => {
+  const renderByState = (state: State) => {
     if (state.error) {
       return <div>{state.error.message}</div>
     } else if (!state.isLoaded) {
@@ -70,7 +70,7 @@ export default function UserTable() {
 
   return (
     <Box p="16px" m="0 auto" maxWidth="720px" bgcolor="#f5f5f5">
-      {renderByState()}
+      {renderByState(state)}
     </Box>
   )
 }
