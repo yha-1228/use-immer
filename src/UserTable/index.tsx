@@ -1,8 +1,9 @@
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Box from '@material-ui/core/Box'
 import { getUsers } from '../api'
 import { Users } from '../types'
 import { delay } from '../utils'
+import CircularProgress from '@material-ui/core/CircularProgress'
 
 type State = {
   users: Users
@@ -41,7 +42,11 @@ export default function UserTable() {
     if (state.error) {
       return <div>{state.error.message}</div>
     } else if (!state.isLoaded) {
-      return <div>Loading...</div>
+      return (
+        <Box textAlign="center" py="48px">
+          <CircularProgress />
+        </Box>
+      )
     } else {
       return (
         <table>
