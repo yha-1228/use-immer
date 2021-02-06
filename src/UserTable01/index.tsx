@@ -17,7 +17,7 @@ const initialState = {
   error: null,
 }
 
-export default function UserTable() {
+export default function UserTable01() {
   const [state, setState] = useState<State>(initialState)
 
   useEffect(() => {
