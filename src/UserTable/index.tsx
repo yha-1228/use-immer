@@ -40,31 +40,37 @@ export default function UserTable() {
   const renderByState = () => {
     if (state.error) {
       return <div>{state.error.message}</div>
+    } else if (!state.isLoaded) {
+      return <div>Loading...</div>
+    } else {
+      return (
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Name</th>
+              <th scope="col">Username</th>
+              <th scope="col">Email</th>
+            </tr>
+          </thead>
+          <tbody>
+            {state.users.map((user) => (
+              <tr key={user.id}>
+                <td>{user.id}</td>
+                <td>{user.name}</td>
+                <td>{user.username}</td>
+                <td>{user.email}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )
     }
   }
 
   return (
     <Box p="16px" m="0 auto" maxWidth="720px" bgcolor="#f5f5f5">
-      <table>
-        <thead>
-          <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Name</th>
-            <th scope="col">Username</th>
-            <th scope="col">Email</th>
-          </tr>
-        </thead>
-        <tbody>
-          {state.users.map((user) => (
-            <tr key={user.id}>
-              <td>{user.id}</td>
-              <td>{user.name}</td>
-              <td>{user.username}</td>
-              <td>{user.email}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      {renderByState()}
     </Box>
   )
 }
